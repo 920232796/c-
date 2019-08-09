@@ -3,9 +3,10 @@
 using namespace std;
 
 int main() {
-    char str1[5];
-  
-    cout<<str1;
-    cout<<strlen(str1);
-    return 0;
+    int a[5] = {6, 2, 3, 4, 5};
+    sort(a, a + 5);
+
+    for (int i = 0; i < 5; i ++) {
+        cout<<a[i]<<" ";
+    }
 }
