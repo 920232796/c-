@@ -47,11 +47,6 @@ bool judge(Node* node) {
         }
         s.pop();
     }
-    // int len = s.top;
-    // while (len != -1) {
-    //     cout<<s.data[len]<<" ";
-    //     len --;
-    // }
 
     while (node != NULL) {
         if (s.get_top() != node -> data) {
