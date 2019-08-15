@@ -39,6 +39,7 @@ void mean_insert_order() {
 }
 
 int main() {
+    
     cin>>n;
     for (int j = 0; j < n; j ++) {
         cin>>a[j];

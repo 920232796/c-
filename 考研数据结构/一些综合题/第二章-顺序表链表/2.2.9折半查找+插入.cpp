@@ -2,7 +2,6 @@
 
 using namespace std;
 
-
 int n;
 int a[100];
 int key;
