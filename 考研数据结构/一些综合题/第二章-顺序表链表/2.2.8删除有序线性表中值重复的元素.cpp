@@ -13,7 +13,11 @@ int n;
 
 struct List {
     int data[100];
-    int length = 0;
+    int length;
+
+    void init() {
+        length = 0;
+    }
 };
 
 void solve(List list) {

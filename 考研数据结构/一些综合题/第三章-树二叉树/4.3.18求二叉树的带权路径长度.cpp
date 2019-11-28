@@ -63,14 +63,14 @@ void bfs(Node* tree) {
 
 int main() {
 
-    Node* Tree = new Node(1, new Node(2, new Node(4, NULL, new Node(7, NULL, NULL)), NULL), 
-    new Node(3, new Node(5, NULL, NULL), new Node(6, NULL, NULL)));
+    Node* Tree = new Node(14, new Node(5, new Node(1, NULL, NULL), new Node(4, NULL, NULL)), 
+    new Node(9, NULL, NULL));
 
     bfs(Tree);
 
-    pre_order(Tree, 1);
+    // pre_order(Tree, 1);
 
-    cout<<"height = "<<wpl<<endl;
+    // cout<<"height = "<<wpl<<endl;
 
 
     return 0;

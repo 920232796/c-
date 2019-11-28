@@ -48,8 +48,7 @@ class UnionFind {
                 //z证明找到父亲了!
                 return x;
             }
-            x = find(father[x]);
-            return x;
+            return find(father[x]);
         }
 
         bool merge(int x, int y) {
@@ -62,15 +61,6 @@ class UnionFind {
             father[f_y] = f_x;
             return true;
         }
-
-        bool same(int x, int y) {
-            int f_x = find(x);
-            int f_y = find(y);
-            if (f_x == f_y) {
-                return true;
-            }
-            return false;
-        }
 };
 
 
@@ -81,11 +71,19 @@ int main() {
     cin>>E;//边数
     for (int i = 0; i < E; i ++) {
         cin>>es[i].from;
+        es[i].from -= 1;
         cin>>es[i].to;
+        es[i].to -= 1;
         cin>>es[i].cost;
     }
 
     sort(es, es + E, comp);
+
+    // for (int i = 0; i < E; i ++) {
+    //     cout<<es[i].cost<<endl;
+    // }
+
+    cout<<"hello world"<<endl;
 
     UnionFind uf;
     uf.init(N);
@@ -94,6 +92,7 @@ int main() {
 
     for (int i = 0; i < E; i ++) {
         Edge e_min = es[i];
+        // cout<<e_min.cost<<endl;
         if (uf.merge(e_min.from, e_min.to)) {
             // 合并成功
             res += e_min.cost;

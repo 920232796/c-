@@ -4,7 +4,6 @@ using namespace std;
 
 #define MAX_X 10000
 #define MAX_Y 10000
-
 /*
 5
 6
@@ -15,12 +14,11 @@ using namespace std;
 2 5 2
 4 5 4
 */
-
 int N; //顶点数
 int E; //边数
-int cost[MAX_X][MAX_Y]; //邻接矩阵
-int d[MAX_X];//最小距离
-bool used[MAX_X];
+int cost[10000][10000]; //邻接矩阵
+int d[10000];//最小距离
+bool used[10000];
 
 void dijkstra(int s) {
 
@@ -55,8 +53,7 @@ void dijkstra(int s) {
     }
 }
 
-int main() {    
-
+int main() {
     cin>>N;
     cin>>E;
 
@@ -75,13 +72,6 @@ int main() {
         cost[a - 1][b - 1] = cur_cost;
         cost[b - 1][a - 1] = cur_cost;
     }
-
-    // for (int i = 0; i < N; i ++) {
-    //     for (int j = 0; j < N; j ++) {
-    //         cout<<cost[i][j]<<" ";
-    //     }
-    //     cout<<endl;
-    // }
 
     dijkstra(0);
 

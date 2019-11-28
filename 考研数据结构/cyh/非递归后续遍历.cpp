@@ -1,20 +1,19 @@
 #include<iostream>
 #include<stack>
 
-//注意  后序和中右左刚好相反，先序正好是中左右，都是中开头，因此它俩差不多 代码基本一样， 把数值push到另一个stack里面！
 using namespace std;
 
-//栈的方式其实就是用栈 完成了回溯！！ 来遍历
 
 struct Tree {
-    int data;
+
     Tree* lchild;
     Tree* rchild;
+    int data;
 
     Tree(int d, Tree* l, Tree* r) {
-        data = d;
         lchild = l;
         rchild = r;
+        data = d;
     }
 };
 
@@ -22,20 +21,20 @@ stack<Tree*> s1;
 stack<Tree*> s2;
 
 void solve(Tree* tree) {
+    Tree* t = tree;
 
-    Tree* T = tree;
+    while (t || !s1.empty()) {
+        //只有遍历完所有结点，循环才会结束！
 
-    while (T || !s1.empty()) {
-       
-       while (T) {
-            s2.push(T);
-            s1.push(T);
-            T = T -> rchild;
-
-       }
-       T = s1.top();
-       s1.pop();
-       T = T -> lchild;
+        while (t) {
+            s1.push(t);
+            s2.push(t);
+            t = t -> rchild;
+        }
+        //说明已经到头了，现在要回溯一下
+        t = s1.top();
+        s1.pop();
+        t = t -> lchild;
     }
 
     while (!s2.empty()) {
@@ -43,6 +42,7 @@ void solve(Tree* tree) {
         s2.pop();
         cout<<t -> data<<" ";
     }
+
 }
 
 int main() {
@@ -50,7 +50,6 @@ int main() {
     Tree* tree = new Tree(1, new Tree(2, new Tree(3, NULL, NULL), new Tree(4, NULL, NULL)), new Tree(5, NULL, NULL));
 
     solve(tree);
-
 
     return 0;
 }
